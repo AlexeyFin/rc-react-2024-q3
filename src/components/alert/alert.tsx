@@ -9,7 +9,7 @@ interface AlertProps {
 interface AlertState {}
 
 export class Alert extends React.Component<AlertProps, AlertState> {
-    constructor(props) {
+    constructor(props: AlertProps) {
         super(props);
     }
 

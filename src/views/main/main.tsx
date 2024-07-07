@@ -8,17 +8,17 @@ import { Alert } from '../../components/alert/alert.tsx';
 import { eAlertTypes } from '../../enums/alert-types.enum.ts';
 import { SearchResult } from '../../components/results/results.tsx';
 
-type MainState = {
+interface MainState {
     results: ICharacter[];
     searchTerm: string;
     isLoading: boolean;
     error: Error | null;
-};
+}
 
 interface MainProps {}
 
 export class Main extends Component<MainProps, MainState> {
-    constructor(props) {
+    constructor(props: MainProps) {
         super(props);
         this.state = {
             results: [],
@@ -55,7 +55,7 @@ export class Main extends Component<MainProps, MainState> {
     }
 
     setSearchTerm(term: string) {
-        this.setState({ ...this.state, searchTerm: term });
+        this.setState({ searchTerm: term });
     }
 
     throwError() {
@@ -78,6 +78,7 @@ export class Main extends Component<MainProps, MainState> {
                     <button
                         className="btn btn-info w-100"
                         onClick={this.throwError}
+                        data-testid="test-throw-error"
                     >
                         Throw Error
                     </button>

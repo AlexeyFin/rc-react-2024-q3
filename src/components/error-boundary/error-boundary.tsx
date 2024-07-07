@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { ErrorInfo } from 'react';
 import { Alert } from '../alert/alert.tsx';
 import { eAlertTypes } from '../../enums/alert-types.enum.ts';
+import { types } from 'sass';
+import Error = types.Error;
 
 interface ErrorBoundaryProps {
-    children;
+    children: React.ReactNode;
 }
 
 interface ErrorBoundaryState {
@@ -14,18 +16,17 @@ export class ErrorBoundary extends React.Component<
     ErrorBoundaryProps,
     ErrorBoundaryState
 > {
-    constructor(props) {
+    constructor(props: ErrorBoundaryProps) {
         super(props);
         this.state = { hasError: false };
     }
 
-    static getDerivedStateFromError(error) {
-        console.log(error, '<0getDerivedStateFromError');
+    static getDerivedStateFromError() {
         return { hasError: true };
     }
 
-    componentDidCatch(error, errorInfo) {
-        console.log('my err Error:', error, errorInfo);
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+        console.log('Error:', error, errorInfo);
     }
 
     render() {

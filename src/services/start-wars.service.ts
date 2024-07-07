@@ -2,7 +2,9 @@ import { IPaginationResponse } from '../interfaces/pagination-response.interface
 import { ICharacter } from '../interfaces/character.interface.ts';
 
 export interface StartWarsService {
-    searchCharacters: (string) => Promise<IPaginationResponse<ICharacter>>;
+    searchCharacters: (
+        query: string
+    ) => Promise<IPaginationResponse<ICharacter>>;
 }
 
 const URL = 'https://swapi.dev/api/people';

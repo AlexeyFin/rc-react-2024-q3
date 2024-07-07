@@ -13,7 +13,7 @@ export class SearchResult<T> extends Component<
     SearchResultProps<T>,
     SearchResultState
 > {
-    constructor(props) {
+    constructor(props: SearchResultProps<T>) {
         super(props);
     }
 
