@@ -1,0 +1,20 @@
+import { eGender } from '../enums/gender.enum.ts';
+
+export interface ICharacter {
+    name: string;
+    height: number;
+    mass: number;
+    hair_color: string;
+    skin_color: string;
+    eye_color: string;
+    birth_year: string;
+    gender: eGender;
+    homeworld: string;
+    films: string[];
+    species: string[];
+    vehicles: string[];
+    starships: string[];
+    created: string;
+    edited: string;
+    url: string;
+}
